@@ -1,0 +1,83 @@
+{% extends 'admin/adminTemplate.html'%}
+{%block title%}AddEmployeeDetails{%endblock%}
+
+{%block style%}
+{%endblock%}
+
+
+{%block body%}
+{%if user.is_authenticated%}
+{% load static %}
+
+  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+              {% if messages %}
+{% for message in messages%}
+
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong> {{message}}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">X</span>
+  </button>
+</div>
+{% endfor %}
+{% endif %}
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Add Employee Details</h1>
+                </div>
+        <form action="/jobposting/" method="POST" class="needs-validation " enctype="multipart/form-data" novalidate>
+                  <div class="mb-3 row">
+                      {% csrf_token %}
+    <label for="jobid" class="col-sm-2 col-form-label">Job Id</label>
+    <div class="col-sm-10">
+      <input type="text" name="jobid" class="form-control" id="jobid" required>
+    </div>
+  </div>
+            <div class="mb-3 row">
+    <label for="postName" class="col-sm-2 col-form-label">Post Name</label>
+    <div class="col-sm-10">
+      <input type="text" name="postName" class="form-control" id="postName" required>
+    </div>
+  </div>
+
+
+                          <div class="mb-3 row">
+    <label for="eligibility" class="col-sm-2 col-form-label">Eligibility</label>
+    <div class="col-sm-10">
+      <input type="text" name="eligibility" class="form-control" id="eligibility" required>
+    </div>
+  </div>
+
+                          <div class="mb-3 row">
+    <label for="postNo" class="col-sm-2 col-form-label">Number of Posts</label>
+    <div class="col-sm-10">
+      <input type="text" name="postNo" class="form-control" id="postNo" required>
+    </div>
+  </div>
+
+                          <div class="mb-3 row">
+    <label for="agelimit" class="col-sm-2 col-form-label">Age Limit</label>
+    <div class="col-sm-10">
+      <input type="text" name="agelimit" class="form-control" id="agelimit" required>
+    </div>
+  </div>
+
+
+                                <div class="mb-3 row">
+    <label for="email" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" name="email" class="form-control" id="email" required>
+    </div>
+  </div>
+                                           <div class="mb-3 row">
+    <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+    <div class="col-sm-10">
+      <input type="text" name="phone" class="form-control" id="phone" required>
+    </div>
+  </div>
+
+            <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+  </main>
+{%endif%}
+{%endblock%}

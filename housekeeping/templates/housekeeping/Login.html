@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Login Page</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'housekeeping/css/login.css'%}">
+</head>
+
+<body>
+    <div class="container-fluid page">
+        <div class="row box">
+            <div class="col-6 main">
+                <h1>Hello</h1>
+                <p>Our platform helps customers to book Servant for their daily household work</p>
+            </div>
+            <div class="col-6 ">
+                <div class="formBox justify-content-center">
+                    <form action="/login/" method="POST" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        <div class="content">
+                            <input type="text" name="username" class="form-control  form-control-lg"
+                                placeholder="User Id" required>
+                        </div>
+
+                        <div class="content">
+                            <input type="password" class="form-control form-control-lg" placeholder="Password"
+                                name="password" required>
+                        </div>
+
+                        <div class="content">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Log In</button>
+                        </div>
+
+                        <div class="content "
+                            style="background:#fff; border-bottom: 1px solid gray;padding-bottom:20px ;">
+                            <a href="">forgotten password</a>
+                        </div>
+                    </form>
+
+                    <a href="{{'/createAcount'}}">
+                        <button type="button" class="btn creatButton ">Creat New
+                            Account</button>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if messages %}
+{% for message in messages%}
+
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong> {{message}}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">X</span>
+  </button>
+</div>
+{% endfor %}
+{% endif %}
+    <script src="{%static 'housekeeping/js/validation.js' %}"></script>
+</body>
+
+</html>

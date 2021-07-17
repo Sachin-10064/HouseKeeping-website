@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HouseKeeping</title>
+
+
+    <!-- boostrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <!-- main css -->
+    <link type="text/css" rel="stylesheet" href="{%static 'housekeeping/css/style.css' %}" />
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/0e3ac2e4e1.js" crossorigin="anonymous"></script>
+
+    <!-- coaresal -->
+
+    <link rel="stylesheet" href="{%static 'housekeeping/css/coaresal.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{%static 'housekeeping/css/lightslider.css' %}" />
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="d-flex h-100 text-center header">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <header class="mb-auto">
+                <div>
+                    <h3 class="float-md-start mb-0">HouseKeeping</h3>
+                    <nav class="nav nav-masthead justify-content-center float-md-end">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" href="{{'createAcount/'}}">Registration</a>
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#jobModal">Job</a>
+                        <a class="nav-link" href="{{'login/'}}">Login</a>
+                    </nav>
+                </div>
+            </header>
+
+            <div class="px-3 p-5">
+                <h1>Our service on your Demand</h1>
+                <p class="lead">Our Company (Formerly HouseKeeping) is Asia's largest online home services platform.
+                    The platform helps customers to book Servant for their daily household work  </p>
+            </div>
+
+<!--            <div class="input-group input-group-lg mb-3 search">-->
+<!--                <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username"-->
+<!--                    aria-describedby="basic-addon2">-->
+<!--                <span class="input-group-text" id="basic-addon2">Search</span>-->
+<!--            </div>-->
+        </div>
+    </section>
+
+    <div class="b-example-divider"></div>
+
+    <!-- Our Services -->
+    <section class="services text-center">
+        <h1>Our Services</h1>
+        <p>Our service on your Demand</p>
+
+        <div class="container">
+            <!--slider------------------->
+            <ul id="autoWidth" class="cs-hidden">
+                <!--1------------------------------>
+                <li class="item-a">
+                    <!--model-->
+                    <img src="{%static 'housekeeping/images/services/gardner.jpg' %}" class="model">
+                    <p class="modeldetails">Gardner</p>
+                </li>
+                <!--2------------------------------>
+                <li class="item-a">
+                    <!--model-->
+                    <img src="{%static 'housekeeping/images/services/chef1.jpg' %}" class="model">
+                    <p class="modeldetails">Chef </p>
+                </li>
+                <!--3------------------------------>
+                <li class="item-a">
+                    <!--model-->
+                    <img src="{%static 'housekeeping/images/services/nenny.jpg' %}" class="model">
+                    <p class="modeldetails">Nenny</p>
+                </li>
+                <!--4------------------------------>
+                <li class="item-a">
+                    <!--model-->
+                    <img src="{%static 'housekeeping/images/services/cleaning (2).jpg' %}" class="model">
+                    <p class="modeldetails">Cleaning </p>
+                </li>
+                <!--5------------------------------>
+                <li class="item-a">
+                    <!--model-->
+                    <img src="{%static 'housekeeping/images/services/Driver1.jpg' %}" class="model">
+                    <p class="modeldetails">Driver </p>
+                </li>
+                <!--6------------------------------>
+                <li class="item-a">
+                    <!--model-->
+                    <img src="{%static 'housekeeping/images/services/watchman.png' %}" class="model">
+                    <p class="modeldetails">Watchman </p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Cleaning &  Pest Control -->
+    <div class="b-example-divider"></div>
+    <section class="services text-center">
+        <h1>Cleaning & Pest Control</h1>
+        <p>Removes hard stains and more</p>
+
+        <div class="container">
+            <!--slider------------------->
+            <ul id="autoWidth1" class="cs-hidden">
+                <!--1------------------------------>
+                <li class="item-a">
+                    <!--model-->
+                    <img src="{%static 'housekeeping/images/cleaning/floorCleaning.jpg' %}" class="model">
+                    <p class="modeldetails">Floar Cleaning </p>
+                </li>
+                <!--2------------------------------>
+                <li class="item-a">
+                    <!--model-->
+                    <img src="{%static 'housekeeping/images/cleaning/fullhouse.jpg' %}" class="model">
+                    <p class="modeldetails">Full House Cleaning </p>
+                </li>
+                <!--3------------------------------>
+                <li class="item-a">
+                    <!--model-->
+                    <img src="{%static 'housekeeping/images/cleaning/bathroomCleaning.jpg' %}" class="model">
+                    <p class="modeldetails">Bathroom Cleaning </p>
+                </li>
+                <!--4------------------------------>
+                <li class="item-a">
+                    <!--model-->
+                    <img src="{%static 'housekeeping/images/cleaning/Cleaning-Kitchen.jpg' %}" class="model">
+                    <p class="modeldetails">Kitchen Cleaning </p>
+                </li>
+                <!--5------------------------------>
+                <li class="item-a">
+                    <!--model-->
+                    <img src="{%static 'housekeeping/images/cleaning/sofa cleaning.jpg' %}" class="model">
+                    <p class="modeldetails">Sofa&carpats Cleaning </p>
+                </li>
+                <!--6------------------------------>
+                <li class="item-a">
+                    <!--model-->
+                    <img src="{%static 'housekeeping/images/cleaning/homeSanitization.jpg' %}" class="model">
+                    <p class="modeldetails">Full house Sanitization Cleaning </p>
+                </li>
+                <!--7------------------------------>
+                <li class="item-a">
+                    <!--model-->
+                    <img src="{%static 'housekeeping/images/cleaning/tankCleaning.jpg' %}" class="model">
+                    <p class="modeldetails">WaterTank Cleaning </p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- testimonials -->
+    <div class="b-example-divider"></div>
+    <section class="services text-center">
+        <h1>Customer safety is our priority</h1>
+        <p>What customers are saying about our safety standards</p>
+
+<!--        <div class="container">-->
+            <!--slider------------------->
+            <ul id="autoWidth2" class="cs-hidden">
+                <!--1------------------------------>
+                <li class="item-a">
+                    <!--slider-box-->
+                     <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+        <div class="card-body">
+          <h5>Ronne Galle <br />
+            <span> Project Manager </span>
+          </h5>
+          <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+            impedit quo minus id quod maxime placeat ” </p>
+        </div>
+      </div>
+
+
+                </li>
+                <!--2------------------------------>
+                <li class="item-a">
+                    <!--slider-box-->
+                                 <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+        <div class="card-body">
+          <h5>Ronne Galle <br />
+            <span> Project Manager </span>
+          </h5>
+          <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+            impedit quo minus id quod maxime placeat ” </p>
+        </div>
+      </div>
+                </li>
+                <!--3------------------------------>
+                <li class="item-a">
+                    <!--slider-box-->
+                                  <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+        <div class="card-body">
+          <h5>Ronne Galle <br />
+            <span> Project Manager </span>
+          </h5>
+          <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+            impedit quo minus id quod maxime placeat ” </p>
+        </div>
+      </div>
+                </li>
+                <!--4------------------------------>
+                <li class="item-a">
+                    <!--slider-box-->
+                                  <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+        <div class="card-body">
+          <h5>Ronne Galle <br />
+            <span> Project Manager </span>
+          </h5>
+          <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+            impedit quo minus id quod maxime placeat ” </p>
+        </div>
+      </div>
+                </li>
+                <!--5------------------------------>
+                <li class="item-a">
+                    <!--slider-box-->
+                                  <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+        <div class="card-body">
+          <h5>Ronne Galle <br />
+            <span> Project Manager </span>
+          </h5>
+          <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+            impedit quo minus id quod maxime placeat ” </p>
+        </div>
+      </div>
+                </li>
+                <!--6------------------------------>
+                <li class="item-a">
+                    <!--slider-box-->
+                                 <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+        <div class="card-body">
+          <h5>Ronne Galle <br />
+            <span> Project Manager </span>
+          </h5>
+          <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+            impedit quo minus id quod maxime placeat ” </p>
+        </div>
+      </div>
+                </li>
+            </ul>
+<!--        </div>-->
+    </section>
+
+    <!-- User Quary section -->
+    <div class="b-example-divider"></div>
+    <section>
+
+        <div class="container my-5">
+            <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+                <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+                    <h1 class="display-4 fw-bold lh-1 mb-3">Frequently Asked Questions</h1>
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        {% for q in query %}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-heading{{q.id}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapse{{q.id}}" aria-expanded="false"
+                                    aria-controls="flush-collapse{{q.id}}">
+                                    {{q.query}}
+                                </button>
+                            </h2>
+                            <div id="flush-collapse{{q.id}}" class="accordion-collapse collapse"
+                                aria-labelledby="flush-heading{{q.id}}" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">{{q.answer}}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="col-md-10 mx-auto col-lg-5">
+                    <form class="p-4 p-md-5 border rounded-3 bg-light" action="/faq/" method="post">
+                        {% csrf_token %}
+                        <div class="form-floating mb-3">
+                            <input type="text" name="fullname" class="form-control" id="name" placeholder="Full Name">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+                            <label for="email">Email address</label>
+                        </div>
+                        <div class="form-floating">
+                            <textarea class="form-control" name="Query" placeholder="Leave your Question here" id="floatingTextarea"></textarea>
+                            <label for="floatingTextarea">Your Question</label>
+                        </div>
+                        <hr class="my-4">
+                         <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+<!--    job modal starts-->
+<!-- Modal -->
+<div class="modal-dialog modal-lg">
+<div class="modal fade" id="jobModal" tabindex="-1" aria-labelledby="jobModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="jobModalLabel">Apply For Job</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          {% for j in job %}
+          <ul>
+             <li><i class="fas fa-arrow-circle-right"></i> Post Name: {{j.postname}}</li>
+             <li><i class="fas fa-arrow-circle-right"></i> Eligibility : {{j.eligibility}}</li>
+             <li><i class="fas fa-arrow-circle-right"></i> Number of Post: {{j.no_of_post}}</li>
+             <li><i class="fas fa-arrow-circle-right"></i> Age Limit: {{j.age_limit}}</li>
+             <li><i class="fas fa-arrow-circle-right"></i> You can Mail your resume on : {{j.email}}</li>
+             <li><i class="fas fa-arrow-circle-right"></i> For More updates contact us on: {{j.phone}}</li>
+          </ul>
+          {% endfor %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!--    modal ends-->
+
+
+    <footer>
+        <div class="footer1">
+            <ul>
+                <li><a href="{{'/about'}}">AboutUs</a> </li>
+                <li><a href="">Terms & Conditions </a></li>
+                <li><a href="">PrivacyPolicy</a></li>
+                <li><a href="">Reviwes </a></li>
+                <li><a href="">ContactUs </a></li>
+            </ul>
+        </div>
+        <div class="footer2">
+            <span class="logo">HouseKeeping</span>
+            <i class="fab fa-facebook-square" style="font-size:26px;"></i>
+            <i class="fab fa-instagram-square" style="font-size:26px;"></i>
+            <i class="fab fa-linkedin" style="font-size:26px;"></i>
+            <i class="fab fa-pinterest-square" style="font-size:26px;"></i>
+            <i class="fab fa-youtube" style="font-size:26px;"></i>
+            <i class="fab fa-twitter" style="font-size:26px;"></i>
+            <button type="button" class="btn btn-outline-light btn-lg Downlode-button"><i
+                    class="fab fa-apple"></i>Downlode</button>
+            <button type="button" class="btn btn-outline-light btn-lg Downlode-button"><i
+                    class="fab fa-google-play"></i>Downlode</button>
+        </div>
+    </footer>
+
+     <!--Jquery-->
+     <script type="text/javascript" src="{%static 'housekeeping/js/JQuery3.3.1.js' %}"></script>
+     <script type="text/javascript" src="{%static 'housekeeping/js/lightslider.js' %}"></script>
+
+    <!-- validation -->
+    <script src="{%static 'housekeeping/js/script.js' %}" type="text/javascript"></script>
+
+    <!-- boostrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

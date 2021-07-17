@@ -1,0 +1,53 @@
+{% extends 'admin/adminTemplate.html'%}
+{%block title%}CustomerComplaints{%endblock%}
+
+{%block style%}
+{%endblock%}
+
+
+{%block body%}
+{%if user.is_authenticated%}
+{% load static %}
+
+  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Customer Complaints</h1>
+                </div>
+      {% if Complaint %}
+      <form method="post" action="/deletecomplaint/">
+          {% csrf_token %}
+                <div class="table-responsive">
+                <table class="table table-dark table-striped">
+                    <thead>
+                      <tr>
+                          <th scope="col">select</th>
+                        <th scope="col">UserName</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">complaint</th>
+                        <th scope="col">date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for comp in Complaint %}
+                      <tr>
+                          <th scope="row"><input type="checkbox" name="chk" value="{{comp.id}}"></th>
+                        <td>{{comp.username}}</td>
+                        <td>{{comp.subject}}</td>
+                        <td>{{comp.complaint_text}}</td>
+                        <td>{{comp.date}}</td>
+                      </tr>
+                    {%endfor%}
+                    <tr>
+                        <th><button type="submit" class="btn btn-primary">Delete</button></th>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+      </form>
+      {% else %}
+      <h2>No Complaint</h2>
+      {%endif%}
+  </main>
+{%endif%}
+{%endblock%}

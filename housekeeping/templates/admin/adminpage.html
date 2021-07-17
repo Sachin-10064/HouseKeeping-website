@@ -1,0 +1,70 @@
+{% extends 'admin/adminTemplate.html'%}
+{%block title%}Customer Request{%endblock%}
+
+{%block style%}
+{%endblock%}
+
+
+{%block body%}
+{%if user.is_authenticated%}
+{% load static %}
+
+  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                   {% if messages %}
+{% for message in messages%}
+
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong> {{message}}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">X</span>
+  </button>
+</div>
+{% endfor %}
+{% endif %}
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Customer Request</h1>
+                </div>
+      {% if userreq %}
+                <div class="table-responsive">
+                <table class="table table-dark table-striped">
+                    <thead>
+                      <tr>
+                          <th scope="col">Select</th>
+                        <th scope="col">UserName</th>
+                        <th scope="col">Employee Type</th>
+                        <th scope="col">No. of Employee</th>
+                        <th scope="col">Date</th>
+                          <th scope="col">Request</th>
+                          <th scope="col">Check</th>
+                          <th scope="col">Answer</th>
+                          <th scope="col">Confirm</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                     <form method="post" action="/confirmstatus/">
+                          {% csrf_token %}
+                          {% for r in userreq %}
+                      <tr>
+                          <td><input  type="radio" name="rd" id="rd" value={{r.id}} required></td>
+                         <td>{{r.username}}</td>
+                          <td>{{r.employee_type}}</td>
+                         <td>{{r.noOfEmployee}}</td>
+                         <td>{{r.date_of_request}}</td>
+                          <td>{{r.request_text}}</td>
+                           <td>{{req.Employeetype}}<a href="/employeestatus/{{r.employee_type}}/{{r.id}}/{{r.noOfEmployee}}">CheckAvailability</a></td>
+                         <td><textarea name=answer{{r.id}} rows="3"></textarea></td>
+                          <td><button type="submit" class="btn btn-primary">Confirm</button></td>
+                       </tr>
+                      {%endfor%}
+
+                     </form>
+                    </tbody>
+                  </table>
+                </div>
+      {% else %}
+      <h1>No Customer Request</h1>
+      {% endif %}
+  </main>
+{%endif%}
+{%endblock%}

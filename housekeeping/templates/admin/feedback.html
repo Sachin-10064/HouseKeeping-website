@@ -1,0 +1,53 @@
+{% extends 'admin/adminTemplate.html'%}
+{%block title%}CustomerFeedbacks{%endblock%}
+
+{%block style%}
+{%endblock%}
+
+
+{%block body%}
+{%if user.is_authenticated%}
+{% load static %}
+
+  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Customer Feedbacks</h1>
+                </div>
+      {%if Feedbak %}
+      <form action="/deletefeedback/" method="post">
+          {% csrf_token %}
+                <div class="table-responsive">
+                <table class="table table-dark table-striped">
+                    <thead>
+                      <tr>
+                          <th scope="col">Select</th>
+                        <th scope="col">UserId</th>
+                        <th scope="col">Rating</th>
+                        <th scope="col">Feedback</th>
+                        <th scope="col">Date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for feed in Feedbak %}
+                      <tr>
+                          <th scope="row"><input type="checkbox" name="chk" value="{{feed.id}}"></th>
+                        <td>{{feed.username}}</td>
+                        <td>{{feed.rating}}</td>
+                        <td>{{feed.feedback_text}}</td>
+                        <td>{{feed.date}}</td>
+                      </tr>
+                    {%endfor%}
+                     <tr>
+                        <th><button type="submit" class="btn btn-primary">Delete</button></th>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+      </form>
+        {% else %}
+      <h2>No Complaint</h2>
+      {%endif%}
+  </main>
+{%endif%}
+{%endblock%}

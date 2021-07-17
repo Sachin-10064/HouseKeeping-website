@@ -1,0 +1,27 @@
+{% extends 'user/usertemplate.html'%}
+{%block title%}UserProfile{%endblock%}
+
+{%block style%}
+{%endblock%}
+
+{%block body%}
+
+{% load static %}
+{%if user.is_authenticated%}
+    <div class="section1">
+        <div class="bg">
+            <div class="img"></div>
+            <h3>{{user.first_name}} {{user.last_name}}</h3>
+            <h3>{{user.username}}</h3>
+        </div>
+        <div class="update">
+            <h1>About US</h1>
+            <h3>fullName: {{user.first_name}} {{user.last_name}}</h3>
+            <h3>Gender: {{userdata.gender}}</h3>
+            <h3>city: {{userdata.city}}</h3>
+            <h3>phone: {{userdata.phone}}</h3>
+            <h3>address: {{userdata.address}}</h3>
+        </div>
+    </div>
+{%endif%}
+{%endblock%}

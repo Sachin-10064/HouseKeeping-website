@@ -1,0 +1,71 @@
+{% extends 'user/usertemplate.html'%}
+{%block title%}UpdateProfile{%endblock%}
+
+{%block style%}
+{%endblock%}
+
+{%block body%}
+
+{% load static %}
+{%if user.is_authenticated%}
+<div class="section1">
+    <div class="bg">
+        <div class="img"></div>
+        <h3>{{user.username}}</h3>
+        <h3>{{user.first_name}} {{user.last_name}}</h3>
+    </div>
+    <div class="update">
+        <h1>About US</h1>
+        <form action="/userupdate/" method="POST" class="needs-validation " enctype="multipart/form-data" novalidate>
+            <div class="mb-3 row">
+                {% csrf_token %}
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Gender</label>
+                    <div class="col-sm-10">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                value="Male">
+                            <label class="form-check-label" for="inlineRadio1">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                value="Female">
+                            <label class="form-check-label" for="inlineRadio2">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                                value="Other">
+                            <label class="form-check-label" for="inlineRadio3">Other</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="address" class="col-sm-2 col-form-label">Address</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="address" class="form-control" value="{{userdata.address}}" id="address" required>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="city" class="col-sm-2 col-form-label">City</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="city" class="form-control" value="{{userdata.city}}" id="city" required>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="phone" class="form-control" value="{{userdata.phone}}" id="phone" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+{% endif %}
+{% endblock %}

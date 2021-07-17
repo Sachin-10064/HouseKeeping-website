@@ -1,0 +1,160 @@
+{% extends 'admin/adminTemplate.html'%}
+{%block title%}AddEmployeeDetails{%endblock%}
+
+{%block style%}
+{%endblock%}
+
+{% block script %}
+alert("Hello")
+   $(document).ready(function(){
+<!--console.log("get in")-->
+<!--    $.noConflict();-->
+
+    $("#employeeid").blur(function (){
+        console.log(this.value)
+
+     $.ajax({
+        //type:"GET",
+        data: $(this).serialize(), // get the form data
+        url: "{% url 'validate_username' %}",
+        //dataType: 'json',
+        success: function (response) {
+
+          if (response.is_taken==true) {
+               $('#userNameExistence').remove()
+            //alert("A user with this username already exists.");
+            $('#employeeid').after('<div class="abc" id="userNameExistence"> username is not available!</div>')
+          }
+          else{
+            $('#userNameExistence').remove();
+          }
+
+        },
+        //on any type of error
+        error: function (response) {
+                        // alert the error if any error occured
+                        console.log(response.responseJSON.errors)
+                    }
+
+    });
+
+    return false;
+    });
+    })
+{% endblock %}
+
+{%block body%}
+{%if user.is_authenticated%}
+{% load static %}
+
+  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+              {% if messages %}
+{% for message in messages%}
+
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong> {{message}}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">X</span>
+  </button>
+</div>
+{% endfor %}
+{% endif %}
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Add Employee Details</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <a href="{{'/employee'}}"><button type="button" class="btn btn-sm btn-outline-secondary">Views</button></a>
+                        </div>
+                    </div>
+                </div>
+        <form action="/addemployee/" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
+                  <div class="mb-3 row">
+                      {% csrf_token %}
+    <label for="employeeid" class="col-sm-2 col-form-label">Employee Id</label>
+    <div class="col-sm-10">
+      <input type="text" name="employeeid" class="form-control" id="employeeid" required>
+    </div>
+  </div>
+            <div class="mb-3 row">
+    <label for="employeeName" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" name="employeeName" class="form-control" id="employeeName" required>
+    </div>
+  </div>
+                         <div class="mb-3 row">
+    <label for="employeetype" class="col-sm-2 col-form-label">Employee type</label>
+    <div class="col-sm-10">
+     <select class="form-select" name="types" aria-label="Default select example" id="employeetype" required>
+          <option selected>Open this select menu</option>
+         {% for t in Type %}
+  <option value="{{t.employee_type}}">{{t.employee_type}}</option>
+          {%endfor%}
+</select>
+    </div>
+  </div>
+
+                <div class="mb-3 row">
+    <label class="col-sm-2 col-form-label">Gender</label>
+    <div class="col-sm-10">
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Male">
+  <label class="form-check-label" for="inlineRadio1">Male</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Female">
+  <label class="form-check-label" for="inlineRadio2">Female</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Other" >
+  <label class="form-check-label" for="inlineRadio3">Other</label>
+</div>
+    </div>
+                </div>
+
+                          <div class="mb-3 row">
+    <label for="address" class="col-sm-2 col-form-label">Address</label>
+    <div class="col-sm-10">
+      <input type="text" name="address" class="form-control" id="address" required>
+    </div>
+  </div>
+
+                          <div class="mb-3 row">
+    <label for="city" class="col-sm-2 col-form-label">City</label>
+    <div class="col-sm-10">
+      <input type="text" name="city" class="form-control" id="city" required>
+    </div>
+  </div>
+
+                          <div class="mb-3 row">
+    <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+    <div class="col-sm-10">
+      <input type="text" name="phone" class="form-control" id="phone" required>
+    </div>
+  </div>
+
+                      <div class="mb-3 row">
+    <label for="joindate" class="col-sm-2 col-form-label">Date of joining</label>
+    <div class="col-sm-10">
+      <input type="datetime-local" name="joindate" class="form-control" id="joindate" required>
+    </div>
+  </div>
+
+                                <div class="mb-3 row">
+    <label for="experience" class="col-sm-2 col-form-label">experience</label>
+    <div class="col-sm-10">
+      <input type="text" name="experience" class="form-control" id="experience" required>
+    </div>
+  </div>
+                                        <div class="mb-3 row">
+    <label for="fileupload" class="col-sm-2 col-form-label">Upload</label>
+    <div class="col-sm-10">
+      <input type="file" class="form-control" id="fileupload" name="fileupload" placeholder="fileupload" required>
+    </div>
+  </div>
+
+            <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+  </main>
+{%endif%}
+{%endblock%}

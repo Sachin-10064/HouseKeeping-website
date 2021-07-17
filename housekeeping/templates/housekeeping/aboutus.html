@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: rgb(235, 231, 225);
+        }
+        .heading{
+            padding: 2%;
+            background-color: #fff;
+            border-bottom: 1px solid gray;
+            box-shadow: 2px 3px 9px 4px grey;
+        }
+        .heading p{
+             font-size: 36px;
+             font-weight: bold;
+        }
+        .section1{
+            margin: 3%;
+            padding: 2%;
+            border: 1px solid gray;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="heading text-center mb-3">
+         <p>
+           AboutUs
+        </p>
+    </div>
+    <div class="section1">
+        <p>{{comp_data.about}}</p>
+        <ul>
+            <li>Owner Name: {{comp_data.owner_name}}</li>
+            <li>Address: {{comp_data.address}},{{comp_data.city}}</li>
+            <li>Email: {{comp_data.email}}</li>
+            <li>Contact No : {{comp_data.phone}}</li>
+            <li>Visiting Hour: {{comp_data.visting_hours}}</li>
+            <li>Working Days: {{comp_data.working_hours}}</li>
+        </ul>
+    </div>
+</body>
+</html>

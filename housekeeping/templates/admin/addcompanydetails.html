@@ -1,0 +1,102 @@
+{% extends 'admin/adminTemplate.html'%}
+{%block title%}Add company details{%endblock%}
+
+{%block style%}
+{%endblock%}
+
+
+{%block body%}
+{% load static %}
+{%if user.is_authenticated%}
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    {% if messages %}
+    {% for message in messages%}
+
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong> {{message}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">X</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Add company details</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <a href="{{'/companyDetails'}}"><button type="button"
+                        class="btn btn-sm btn-outline-secondary">Views</button></a>
+            </div>
+        </div>
+    </div>
+    <form action="/addcompanyDetails/" method="POST" class="needs-validation" novalidate>
+        {% csrf_token %}
+<!--        <div class="mb-3 row">-->
+<!--            <label for="companyName" class="col-sm-2 col-form-label">Company Name</label>-->
+<!--            <div class="col-sm-10">-->
+<!--                <input type="text" name="companyName" class="form-control" id="companyName" required>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="mb-3 row">-->
+<!--            <label for="companyOwner" class="col-sm-2 col-form-label">Owner Name</label>-->
+<!--            <div class="col-sm-10">-->
+<!--                <input type="text" name="companyOwner" class="form-control" id="companyOwner" required>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <div class="mb-3 row">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="text" name="email" class="form-control" id="email" required>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="address" class="col-sm-2 col-form-label">Address</label>
+            <div class="col-sm-10">
+                <input type="text" name="address" class="form-control" id="address" required>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="city" class="col-sm-2 col-form-label">City</label>
+            <div class="col-sm-10">
+                <input type="text" name="city" class="form-control" id="city" required>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+            <div class="col-sm-10">
+                <input type="text" name="phone" class="form-control" id="phone" required>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="workinghours" class="col-sm-2 col-form-label">Working Hours</label>
+            <div class="col-sm-10">
+                <input type="text" name="workinghours" class="form-control" id="workinghours" required>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="workingdays" class="col-sm-2 col-form-label">Working Days</label>
+            <div class="col-sm-10">
+                <input type="text" name="workingdays" class="form-control" id="workingdays" required>
+            </div>
+        </div>
+
+<!--        <div class="mb-3 row">-->
+<!--            <label for="about" class="col-sm-2 col-form-label">About</label>-->
+<!--            <div class="col-sm-10">-->
+<!--                <textarea class="form-control" name="about" id="about" rows="4" required></textarea>-->
+<!--            </div>-->
+<!--        </div>-->
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+</main>
+{%endif%}
+{%endblock%}

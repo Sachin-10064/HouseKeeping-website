@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>CreatAccount</title>
+
+    <style>
+        .form-signin {
+            width: 100%;
+            max-width: 420px;
+            padding: 15px;
+            margin: auto;
+            margin-top: 5%;
+            margin-bottom: 7%;
+            border-radius: 20px;
+            background-color: #f0f2f5;
+        }
+
+        .creatButton {
+            margin-left: 90px;
+            margin-top: 30px;
+            font-weight: bold;
+            color: #fff;
+            background-color: rgb(8, 185, 8);
+            height: 40px;
+            width: 200px;
+        }
+        .abc{color:red}
+    </style>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+
+    $(document).ready(function(){
+<!--    $.noConflict();-->
+
+    $("#userid").blur(function (){
+<!--        alert(this.value)-->
+
+     $.ajax({
+        //type:"GET",
+        data: $(this).serialize(), // get the form data
+        url: "{% url 'validate_username' %}",
+        //dataType: 'json',
+        success: function (response) {
+
+          if (response.is_taken==true) {
+               $('#userNameExistence').remove()
+            //alert("A user with this username already exists.");
+            $('#userid').after('<div class="abc" id="userNameExistence"> username already exists !</div>')
+          }
+          else{
+            $('#userNameExistence').remove();
+          }
+
+        },
+        //on any type of error
+        error: function (response) {
+                        // alert the error if any error occured
+                        console.log(response.responseJSON.errors)
+                    }
+
+    });
+
+    return false;
+    });
+    })
+  </script>
+</head>
+
+<body>
+    <form class="form-signin needs-validation" action="/createAcount/" method="POST" novalidate >
+        {% csrf_token %}
+        <div class="text-center mb-4">
+            <h1 class="h3 mb-3 font-weight-bold">Sign Up</h1>
+        </div>
+        <div style="border-top: 2px solid black;margin: 5px;"></div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="firstName" placeholder="First name" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="lastName" placeholder="Last name" required>
+                </div>
+            </div>
+        </div>
+
+         <div class="form-group">
+            <input class="form-control" id="userid" name="userid" type="text" placeholder="UserId" required>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" name="email" type="email" placeholder="Email Addres" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" type="password" placeholder="Password" required>
+        </div>
+
+        <div style="border-top: 2px solid black;margin-top: 5px;"></div>
+        <button type="submit" class="btn creatButton">Sign Up</button>
+    </form>
+                  {% if messages %}
+{% for message in messages%}
+
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong> {{message}}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">X</span>
+  </button>
+</div>
+{% endfor %}
+{% endif %}
+
+    <script src="{%static 'housekeeping/js/validation.js' %}"></script>
+</body>
+
+</html>
