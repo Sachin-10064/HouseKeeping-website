@@ -65,9 +65,9 @@ def userprofile(request):
             "userdata": data
         }
 
-        return render(request,'user/viweprofile.html', param)
+        return render(request,'User/viweprofile.html', param)
     else:
-        return render(request, 'user/profileUpdate.html')
+        return render(request, 'User/profileUpdate.html')
 
 def userupdate(request):
     username = request.session["userinfo"]
@@ -88,7 +88,7 @@ def userupdate(request):
             return redirect('userprofile')
 
 
-        return render(request, 'user/profileUpdate.html', param)
+        return render(request, 'User/profileUpdate.html', param)
 
     else:
         if request.method == "POST":
@@ -115,7 +115,7 @@ def viewemployeeDetails(request):
     print("empldeatils",empdetails)
     employee_dict={"Employees":empdetails}
 
-    return render(request,'user/employeedetails.html',employee_dict)
+    return render(request,'User/employeedetails.html',employee_dict)
 
 
 

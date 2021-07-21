@@ -45,7 +45,7 @@ def createAcount(request):
         user.last_name = lastname
 
         user.save()
-        return render(request, 'housekeeping/login.html')
+        return render(request, 'housekeeping/Login.html')
 
     return render(request, "housekeeping/creatAcount.html")
 
