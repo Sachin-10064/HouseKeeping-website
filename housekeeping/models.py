@@ -36,7 +36,6 @@ class Job(models.Model):
     date = models.DateTimeField(default=timezone.now, editable=False, )
     phone = models.IntegerField(null=True)
 
-
 class UserProfile(models.Model):
     username = models.CharField(max_length=45, null=False, primary_key=True)
     city = models.CharField(max_length=45, null=False)

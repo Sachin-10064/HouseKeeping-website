@@ -23,12 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ueft*ksj2h5xm*m!x)_5adsmdzq9e2q5y*mg&s0w=y3n%+i%#)'
+with open(os.path.join(BASE_DIR, 'secret_key.txt')) as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'housekeepingwebsite.herokuapp.com']
+ALLOWED_HOSTS = ['*', 'housekeepingwebsite.herokuapp.com']
 
 
 # Application definition
@@ -121,10 +122,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfile')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfile')
 STATIC_URL = '/static/'
 MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
 MEDIA_URL='/media/'
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+STATIC_ROOT = (os.path.join(SITE_ROOT, 'static_files/'))
+STATICFILES_DIRS = (
+  os.path.join(SITE_ROOT, 'static/'),
+)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
